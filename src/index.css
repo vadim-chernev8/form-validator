@@ -11,3 +11,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.form-contaier {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 20%;
+}
+
+.form--input {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  font-family: 'Arial';
+  margin-top: 15px;
+  box-sizing: border-box;
+}
+
+.form-buttom--submit {
+  width: 100%;
+  color: #fff;
+  background: #000;
+  border: 0;
+  padding: 20px 0;
+  font-family: 'Arial';
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.form--error {
+  font-size: 14px;
+  color: red;
+  display: block;
+  text-align: left;
+  margin: 10px 0 0;
+}

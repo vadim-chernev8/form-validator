@@ -1,24 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import { Form, Field } from './Form';
+
+const schema = {
+  name: {
+    rules: {
+      required: e => !!e,
+    },
+    messages: {
+      required: 'Field is required',
+    },
+  },
+  email: {
+    rules: {
+      required: e => !!e,
+    },
+    messages: {
+      required: 'Field is required',
+    },
+  },
+};
+
+const initialValues = {
+  name: 'Vadim',
+  email: 'vadimchernev16@gmail.com',
+}
+
+const Input = ({ onChange, value, ...input }) => {
+  return <input className="form--input" onChange={(e) => onChange(e.target.value)} value={value} {...input} />
+}
+
 function App() {
+  const handleSubmit = (...args) => {
+    console.log(args);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="form-contaier">
+        <Form schema={schema} initialValues={initialValues} onSubmit={handleSubmit}>
+          <Field name="name" component={Input} />
+          <Field name="email" component={Input} />
+          <button className="form-buttom--submit">Submit</button>
+        </Form>
+      </section>
     </div>
   );
 }
